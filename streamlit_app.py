@@ -3,9 +3,8 @@ import tensorflow as tf
 import numpy as np
 
 def model_prediction(test_image):
-  model = tf.keras.models.load_model("garbage_class_model2.keras")
-  image = tf.keras.preprocessing.image.load_img(test_image,target_size=(246,246))
-  # image = image.resize((128,128))
+  model = tf.keras.models.load_model("garbage_classification_model.keras")
+  image = tf.keras.preprocessing.image.load_img(test_image,target_size=(224,224))
   input_arr = tf.keras.preprocessing.image.img_to_array(image)
   predictions = model.predict(input_arr)
   return np.argmax(predictions)  #returns index of maximum element
